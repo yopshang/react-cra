@@ -5,6 +5,7 @@ import logo from './assets/logo.svg';
 import './assets/App.css';
 import Input from './components/input';
 import { useEffect, useState } from 'react';
+import './assets/all.scss'
 
 function App() {
   const [text, setText]  = useState('default')
@@ -22,6 +23,7 @@ function App() {
       <header className="App-header">
         <Input onChangeHandler={onChangeHandler} id={'haha'} text={text}></Input>
         <img src={logo} className="App-logo" alt="logo" />
+        <button type="button" className="btn btn-primary">Primary</button>
         <p>
           loreme
         </p>
