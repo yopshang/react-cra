@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/yopshang.github.io/react-cra/static/css/main.e2c90102.css",
-    "main.js": "/yopshang.github.io/react-cra/static/js/main.97e747c9.js",
-    "static/media/logo.svg": "/yopshang.github.io/react-cra/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "index.html": "/yopshang.github.io/react-cra/index.html",
-    "main.e2c90102.css.map": "/yopshang.github.io/react-cra/static/css/main.e2c90102.css.map",
-    "main.97e747c9.js.map": "/yopshang.github.io/react-cra/static/js/main.97e747c9.js.map"
+    "main.css": "/react-cra/static/css/main.e2c90102.css",
+    "main.js": "/react-cra/static/js/main.d63e2a4d.js",
+    "static/media/logo.svg": "/react-cra/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/react-cra/index.html",
+    "main.e2c90102.css.map": "/react-cra/static/css/main.e2c90102.css.map",
+    "main.d63e2a4d.js.map": "/react-cra/static/js/main.d63e2a4d.js.map"
   },
   "entrypoints": [
     "static/css/main.e2c90102.css",
-    "static/js/main.97e747c9.js"
+    "static/js/main.d63e2a4d.js"
   ]
 }
