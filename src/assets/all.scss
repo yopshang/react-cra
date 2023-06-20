@@ -2,7 +2,6 @@
 @import "./variables";
 @import "bootstrap/scss/bootstrap";
 
-$body-color: red;
-.App-header {
-  // background-color: red;
+.badge-danger {
+  background-color: $danger;
 }

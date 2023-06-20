@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './assets/index.css';  // cra環境 可直接匯入css 到 js中
+// import './assets/index.css';  // cra環境 可直接匯入css 到 js中
 import App from './App'; // cra 環境中可省略 .js
 // import reportWebVitals from './reportWebVitals';
 
