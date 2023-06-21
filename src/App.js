@@ -1,16 +1,23 @@
-
-// import axios from 'axios'
-
-// import { useEffect, useState } from 'react';
-import './assets/all.scss'
+import {CartContext} from './store'
+import './assets/scss/all.scss'
 import Navbar from './components/Navbar';
 import Products from './components/Product';
 import Carts from './components/Cart';
+import { useReducer } from 'react';
+
 
 function App() {
-
+  const CartReducer = useReducer((state, action)=>{
+    console.log(action)
+    switch (action.type) {
+      default:
+        return state;
+    }
+  },{
+      cartList: []
+  })
   return (
-    <div className="App">
+    <CartContext.Provider value={CartReducer} className="App">
         <Navbar></Navbar>
         <div className="container mt-4">
           <div className="row">
@@ -23,7 +30,7 @@ function App() {
           </div>
 
         </div>
-    </div>
+    </CartContext.Provider>
   );
 }
 
