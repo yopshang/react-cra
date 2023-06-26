@@ -29,6 +29,17 @@ function App() {
           ...state,
           cartList
         }
+      case 'DELETE':
+        // const newCartList = cartList.filter(item=>item.id !== action.payload).map(item=>item)
+        // return {
+        //   ...state,
+        //   cartList: newCartList
+        // }
+        cartList.splice(index, 1) // 這個效能比較好
+        return {
+        ...state,
+          cartList
+        }
       default:
         return state;
     }

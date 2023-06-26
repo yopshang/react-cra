@@ -10,7 +10,13 @@ export default function Carts(){
         state.cartList.map((item)=>{
           return (
           <tr key={item.id}>
-            <td><a></a></td>
+            <td><button type="button" className="btn btn-sm" onClick={()=>{
+              console.log('移除', item.id)
+              dispatch({
+                type: 'DELETE',
+                payload: item.id
+              })
+            }} >X</button></td>
             <td>
               <img className="cart-image" src={item.img}></img>
             </td>
