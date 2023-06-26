@@ -9,9 +9,9 @@ import { useReducer } from 'react';
 function App() {
   const CartReducer = useReducer((state, action)=>{
     const cartList = [...state.cartList]
+    const index = cartList.findIndex(item=>item.id === action.payload.id) // 若Id有重複，就不加入，第一次加入一定為 -1
     switch (action.type) {
       case 'ADD_TO_CART':{
-        const index = cartList.findIndex(item=>item.id === action.payload.id) // 若Id有重複，就不加入，第一次加入一定為 -1
         if(index === -1){
           cartList.push(action.payload)
         } else {
@@ -23,6 +23,12 @@ function App() {
           cartList
         }
       }
+      case 'CHANGE_CART_QUANTITY':
+        cartList[index].quantity = action.payload.quantity
+        return {
+          ...state,
+          cartList
+        }
       default:
         return state;
     }
