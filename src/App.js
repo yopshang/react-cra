@@ -29,6 +29,12 @@ function App() {
           ...state,
           cartList
         }
+      case 'DELETE':
+        cartList.splice(index)
+        return {
+          ...state,
+          cartList
+        }
       default:
         return state;
     }
