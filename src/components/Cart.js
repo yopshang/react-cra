@@ -1,16 +1,29 @@
+import { CartContext } from "../store"
+import { useContext } from "react"
+
 export default function Carts(){
+  const [state, dispatch] = useContext(CartContext)
   return (
     <table className="table align-middle">
     <tbody className="">
-      <tr>
-        <td><a></a></td>
-        <td><img></img></td>
-        <td>Rainbow Donuts<br/><small>NT$220</small></td>
-        <td><select className="form-select"></select></td>
-        <td>
-          NT$440
-        </td>
-      </tr>
+      {
+        state.cartList.map((item)=>{
+          return (
+          <tr key={item.id}>
+            <td><a></a></td>
+            <td>
+              <img className="cart-image" src={item.img}></img>
+            </td>
+            <td>{item.title}<br/><small>NT${item.price}</small></td>
+            <td><select className="form-select"></select></td>
+            <td>
+              NT$ {item.price*item.quantity}
+            </td>
+          </tr>
+          )
+
+        })
+      }
     </tbody>
     <tfoot>
       <tr>

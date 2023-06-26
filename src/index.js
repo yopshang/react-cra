@@ -7,9 +7,9 @@ import App from './App'; // cra 環境中可省略 .js
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // React.StrictMode 會導致 useeffect 執行兩次, 只會在開發模式執行, 會影響運行哪些項目, 平常建議打開
-  <React.StrictMode>
+  // <React.StrictMode> // 移除這個 避免開發階段執行兩次
     <App />
-  </React.StrictMode>
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

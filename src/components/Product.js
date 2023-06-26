@@ -19,7 +19,7 @@ export default function Products(){
                         type: 'ADD_TO_CART',
                         payload: {
                           ...productData,
-                          qty: 1
+                          quantity: 1
                         }
                       })
                     }
