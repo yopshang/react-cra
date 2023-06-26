@@ -1,8 +1,13 @@
 import { CartContext } from "../store"
-import { useContext } from "react"
+import { useContext, useMemo } from "react"
 
 export default function Carts(){
   const [state, dispatch] = useContext(CartContext)
+  const totalAmt = useMemo(()=>{
+    return state.cartList.map(item=>item.price*item.quantity).reduce((a, b)=>{
+      return a+b
+    },0)
+  },[state])
   return (
     <table className="table align-middle">
     <tbody className="">
@@ -56,7 +61,7 @@ export default function Carts(){
     </tbody>
     <tfoot>
       <tr>
-        <td colSpan={5} className="text-end">總金額 NT$440</td>
+        <td colSpan={5} className="text-end">總金額 NT${totalAmt}</td>
       </tr>
     </tfoot>
   </table>
