@@ -8,12 +8,13 @@ export const CartReducer = (state, action)=>{
   switch (action.type) {
     case 'ADD_TO_CART':{
       if(index === -1){
-        cartList.push(action.payload)
+        let result = {...action.payload}
+        result.quantity = addAmtListIndex===-1?1:parseInt(addAmtList[addAmtListIndex].amt)
+        cartList.push(result)
       } else {
         // cartList[index].quantity += action.payload.quantity
         cartList[index].quantity += addAmtListIndex===-1?1:parseInt(addAmtList[addAmtListIndex].amt)
       }
-      console.log('state', state)
       return {
         ...state,
         cartList,
