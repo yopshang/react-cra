@@ -18,7 +18,6 @@ export const CartReducer = (state, action)=>{
       return {
         ...state,
         cartList,
-        addAmtList
       }
     }
     case 'CHAGE_ADD_AMT':
@@ -40,14 +39,12 @@ export const CartReducer = (state, action)=>{
       return {
         ...state,
         cartList,
-        addAmtList
       }
     case 'DELETE':
       cartList.splice(index)
       return {
         ...state,
         cartList,
-        addAmtList
       }
     default:
       return state;
