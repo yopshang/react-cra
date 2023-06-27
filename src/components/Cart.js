@@ -1,8 +1,13 @@
 import { CartContext } from "../store"
-import { useContext } from "react"
+import { useContext, useMemo } from "react"
 
 export default function Carts(){
   const [state, dispatch] = useContext(CartContext)
+  const totalAmt = useMemo(()=>{
+    return state.cartList.map(item=>item.price*item.quantity).reduce((a, b)=>{
+      return a+b
+    },0)
+  },[state])
   return (
     <table className="table align-middle">
     <tbody className="">
@@ -10,13 +15,16 @@ export default function Carts(){
         state.cartList.map((item)=>{
           return (
           <tr key={item.id}>
-            <td><button type="button" className="btn btn-sm" onClick={()=>{
-              console.log('移除', item.id)
-              dispatch({
-                type: 'DELETE',
-                payload: item.id
-              })
-            }} >X</button></td>
+            <td><button type="button" className="btn btn-sm" onClick={
+              ()=>{
+                dispatch({
+                  type:"DELETE",
+                  payload: {
+                    id: item.id
+                  }
+                })
+              }
+            }>x</button></td>
             <td>
               <img className="cart-image" src={item.img}></img>
             </td>
@@ -53,7 +61,7 @@ export default function Carts(){
     </tbody>
     <tfoot>
       <tr>
-        <td colSpan={5} className="text-end">總金額 NT$440</td>
+        <td colSpan={5} className="text-end">總金額 NT${totalAmt}</td>
       </tr>
     </tfoot>
   </table>
