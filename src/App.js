@@ -1,48 +1,19 @@
-import {CartContext} from './store'
+import { useReducer } from 'react';
+import {CartContext, CartReducer, cartInit} from './store'
 import './assets/scss/all.scss'
 import Navbar from './components/Navbar';
 import Products from './components/Product';
 import Carts from './components/Cart';
-import { useReducer } from 'react';
 
 
 function App() {
-  const CartReducer = useReducer((state, action)=>{
-    const cartList = [...state.cartList]
-    const index = cartList.findIndex(item=>item.id === action.payload.id) // 若Id有重複，就不加入，第一次加入一定為 -1
-    switch (action.type) {
-      case 'ADD_TO_CART':{
-        if(index === -1){
-          cartList.push(action.payload)
-        } else {
-          cartList[index].quantity += action.payload.quantity
-        }
-        console.log(cartList)
-        return {
-          ...state,
-          cartList
-        }
-      }
-      case 'CHANGE_CART_QUANTITY':
-        cartList[index].quantity = action.payload.quantity
-        return {
-          ...state,
-          cartList
-        }
-      case 'DELETE':
-        cartList.splice(index)
-        return {
-          ...state,
-          cartList
-        }
-      default:
-        return state;
-    }
-  },{
-      cartList: []
-  })
+
+  const reducer = useReducer(CartReducer,cartInit); 
+  // CartREducer原本就是一支function , 可整個拉到 store裡面後輸出
+  // 預設值也可統一拉到 store處理
+
   return (
-    <CartContext.Provider value={CartReducer} className="App">
+    <CartContext.Provider value={reducer} className="App">
         <Navbar></Navbar>
         <div className="container mt-4">
           <div className="row">
