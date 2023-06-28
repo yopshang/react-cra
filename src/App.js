@@ -5,6 +5,9 @@ import Navbar from './components/Navbar';
 import Products from './components/Product';
 import Carts from './components/Cart';
 import MangerPage from './components/MangerPage';
+import VisitorPage from './components/VisitoerPage';
+import {Routes, Route} from 'react-router-dom'
+
 
 function App() {
 
@@ -16,6 +19,7 @@ function App() {
     <CartContext.Provider value={reducer} className="App">
         <Navbar></Navbar>
         <div className="container mt-4">
+
           <div className="row">
             <div className="col-8">
               <Products></Products>
@@ -24,10 +28,12 @@ function App() {
               <Carts></Carts>
             </div>
           </div>
-          {
-            <MangerPage></MangerPage>
-          }
 
+
+        <Routes>
+          <Route path="/" element={< VisitorPage/>}></Route>
+          <Route path="/mgr" element={<MangerPage/>}></Route>
+        </Routes>
         </div>
     </CartContext.Provider>
   );

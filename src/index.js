@@ -3,12 +3,15 @@ import ReactDOM from 'react-dom/client';
 // import './assets/index.css';  // cra環境 可直接匯入css 到 js中
 import App from './App'; // cra 環境中可省略 .js
 // import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // React.StrictMode 會導致 useeffect 執行兩次, 只會在開發模式執行, 會影響運行哪些項目, 平常建議打開
   // <React.StrictMode> // 移除這個 避免開發階段執行兩次
+  <BrowserRouter>
     <App />
+  </BrowserRouter>
   // </React.StrictMode>
 );
 
