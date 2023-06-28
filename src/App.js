@@ -4,7 +4,7 @@ import './assets/scss/all.scss'
 import Navbar from './components/Navbar';
 import Products from './components/Product';
 import Carts from './components/Cart';
-
+import MangerPage from './components/MangerPage';
 
 function App() {
 
@@ -24,6 +24,9 @@ function App() {
               <Carts></Carts>
             </div>
           </div>
+          {
+            <MangerPage></MangerPage>
+          }
 
         </div>
     </CartContext.Provider>

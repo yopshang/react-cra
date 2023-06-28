@@ -46,11 +46,18 @@ export const CartReducer = (state, action)=>{
         ...state,
         cartList,
       }
+    case 'CHANGE_ROLE':
+      let role = action.payload
+      return {
+        ...state,
+        role
+      }
     default:
       return state;
   }
 }
 export const cartInit = {
   cartList: [],
-  addAmtList: []
+  addAmtList: [],
+  role: 'visitor', // or manager
 }
