@@ -2,8 +2,8 @@ import { useReducer } from 'react';
 import {CartContext, CartReducer, cartInit} from './store'
 import './assets/scss/all.scss'
 import Navbar from './components/Navbar';
-import Products from './components/Product';
-import Carts from './components/Cart';
+// import Products from './components/Product';
+// import Carts from './components/Cart';
 import MangerPage from './components/MangerPage';
 import VisitorPage from './components/VisitoerPage';
 import {Routes, Route} from 'react-router-dom'
@@ -19,21 +19,10 @@ function App() {
     <CartContext.Provider value={reducer} className="App">
         <Navbar></Navbar>
         <div className="container mt-4">
-
-          <div className="row">
-            <div className="col-8">
-              <Products></Products>
-            </div>
-            <div className="col-4 bg-light p-3">
-              <Carts></Carts>
-            </div>
-          </div>
-
-
-        <Routes>
-          <Route path="/" element={< VisitorPage/>}></Route>
-          <Route path="/mgr" element={<MangerPage/>}></Route>
-        </Routes>
+          <Routes>
+            <Route path="/" element={< VisitorPage/>}></Route>
+            <Route path="/mgr" element={<MangerPage/>}></Route>
+          </Routes>
         </div>
     </CartContext.Provider>
   );
