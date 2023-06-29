@@ -1,12 +1,13 @@
 import { useReducer } from 'react';
-import {CartContext, CartReducer, cartInit} from './store'
-import './assets/scss/all.scss'
+import {Routes, Route} from 'react-router-dom'
+
 import Navbar from './components/Navbar';
-// import Products from './components/Product';
-// import Carts from './components/Cart';
 import MangerPage from './components/MangerPage';
 import VisitorPage from './components/VisitoerPage';
-import {Routes, Route} from 'react-router-dom'
+import Content from './components/Content';
+import Setting from './components/Setting';
+import {CartContext, CartReducer, cartInit} from './store'
+import './assets/scss/all.scss'
 
 
 function App() {
@@ -21,7 +22,10 @@ function App() {
         <div className="container mt-4">
           <Routes>
             <Route path="/" element={< VisitorPage/>}></Route>
-            <Route path="/mgr" element={<MangerPage/>}></Route>
+            <Route path="/mgr" element={<MangerPage/>}>
+              <Route index element={<Content/>}></Route>
+              <Route path="setting" element={<Setting/>}></Route>
+            </Route>
           </Routes>
         </div>
     </CartContext.Provider>

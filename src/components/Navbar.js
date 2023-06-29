@@ -11,7 +11,7 @@ export default function Navbar(){
           <span className="navbar-brand">You DESERT good taste!</span>
           <div>
             <Link className={location.pathname==='/'?'btn btn-outline-dark position-relative mr-2 active':'btn btn-outline-dark position-relative mr-2'} to="/">visitor</Link>
-            <Link className={location.pathname==='/mgr'?'btn btn-outline-dark position-relative mr-2 active':'btn btn-outline-dark position-relative mr-2'} to="/mgr">manger</Link>
+            <Link className={location.pathname!=='/'?'btn btn-outline-dark position-relative mr-2 active':'btn btn-outline-dark position-relative mr-2'} to="/mgr">manger</Link>
             <button type="button" className="btn btn-outline-dark position-relative">Your cart
             {
               state.cartList.length>0?<span className="badge badge-pill badge-danger position-absolute top-0 start-100 translate-middle">{state.cartList.length}</span>:''
